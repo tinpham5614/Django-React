@@ -11,7 +11,7 @@ def generate_unique_code():
     return code
 # Create your models here.
 class Room(models.Model):
-    code = models.CharField(max_length=8, default="", unique=True) # code is the room code
+    code = models.CharField(max_length=8, default=generate_unique_code, unique=True) # code is the room code
     host = models.CharField(max_length=50, unique=True) # host is the user who created the room
     guest_can_pause = models.BooleanField(null=False, default=False) # guest_can_pause is a boolean field that determines if the guest can pause the music
     votes_to_skip = models.IntegerField(null=False, default=1) # votes_to_skip is an integer field that determines how many votes are needed to skip a song
